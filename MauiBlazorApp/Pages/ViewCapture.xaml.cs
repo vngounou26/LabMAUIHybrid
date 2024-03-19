@@ -1,10 +1,14 @@
+using MauiBlazorApp.ViewModels;
+
 namespace MauiBlazorApp.Pages;
 
 public partial class ViewCapture : ContentPage
 {
-	public ViewCapture()
+	private CaptureViewModel _viewModel;
+	public ViewCapture(CaptureViewModel viewModel)
 	{
 		InitializeComponent();
+		_viewModel = viewModel;
 	}
 
     private async void ImagePreview_Clicked(object sender,EventArgs e)
@@ -13,13 +17,15 @@ public partial class ViewCapture : ContentPage
 
 		if(media is not null)
 		{
-			//using MemoryStream memoryStream = new();
-			//await (await media.OpenReadAsync()).CopyToAsync(memoryStream);
-			//var base64String = Convert.ToBase64String(memoryStream.ToArray());
-			//ImagePreview.Source = ImageSource.FromStream(() => new MemoryStream(Convert.FromBase64String(base64String)));
+			using MemoryStream memoryStream = new();
+			await (await media.OpenReadAsync()).CopyToAsync(memoryStream);
+			var base64String = Convert.ToBase64String(memoryStream.ToArray());
+			ImagePreview.Source = ImageSource.FromStream(() => new MemoryStream(Convert.FromBase64String(base64String)));
 
-			var stream = await media.OpenReadAsync();
-			ImagePreview.Source = ImageSource.FromStream(() => stream);
+			await _viewModel.SaveImageCommand.ExecuteAsync(base64String);
+
+			//var stream = await media.OpenReadAsync();
+			//ImagePreview.Source = ImageSource.FromStream(() => stream);
 
 		}
 		

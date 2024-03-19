@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiBlazorApp", "MauiBlazorApp\MauiBlazorApp.csproj", "{8FCC0DC7-91C1-4394-8EE1-4E71E7398AED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiProject", "ApiProject\ApiProject.csproj", "{50E0C094-73E5-4CC1-913F-85DD3224E554}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,10 @@ Global
 		{8FCC0DC7-91C1-4394-8EE1-4E71E7398AED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FCC0DC7-91C1-4394-8EE1-4E71E7398AED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8FCC0DC7-91C1-4394-8EE1-4E71E7398AED}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{50E0C094-73E5-4CC1-913F-85DD3224E554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50E0C094-73E5-4CC1-913F-85DD3224E554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50E0C094-73E5-4CC1-913F-85DD3224E554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50E0C094-73E5-4CC1-913F-85DD3224E554}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

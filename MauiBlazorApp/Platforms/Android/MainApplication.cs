@@ -1,6 +1,9 @@
 ﻿using Android.App;
 using Android.Runtime;
 
+[assembly: UsesPermission(Android.Manifest.Permission.Camera)]
+[assembly: UsesPermission(Android.Manifest.Permission.WriteExternalStorage)]
+
 namespace MauiBlazorApp
 {
     [Application]
