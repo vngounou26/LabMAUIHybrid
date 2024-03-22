@@ -2,6 +2,7 @@
 using MauiBlazorApp.Services;
 using MauiBlazorApp.ViewModels;
 using Microsoft.Extensions.Logging;
+using SharedLibrary.Services;
 
 namespace MauiBlazorApp
 {
@@ -20,11 +21,17 @@ namespace MauiBlazorApp
             builder.Services.AddMauiBlazorWebView();
 
             builder.Services.AddSingleton<IImageService,ImageService>();
+            builder.Services.AddSingleton<ISharedImageService, SharedImageService>();
             builder.Services.AddSingleton<ViewCapture>().AddSingleton<CaptureViewModel>();
 
-            builder.Services.AddHttpClient<IImageService,ImageService>(client =>
+            builder.Services.AddSingleton(sp =>new HttpClient
             {
-                client.BaseAddress = new Uri("http://localhost:5066");
+#if ANDROID
+                BaseAddress = new Uri("http://10.0.2.2:5066")
+#else
+
+                BaseAddress = new Uri("http://localhost:5066")
+#endif
             });
 
 #if DEBUG

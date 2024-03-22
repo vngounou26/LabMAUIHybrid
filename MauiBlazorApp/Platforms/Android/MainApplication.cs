@@ -6,7 +6,11 @@ using Android.Runtime;
 
 namespace MauiBlazorApp
 {
+#if DEBUG
+    [Application(AllowBackup = false, UsesCleartextTraffic = true)]
+#else
     [Application]
+#endif
     public class MainApplication:MauiApplication
     {
         public MainApplication(IntPtr handle,JniHandleOwnership ownership)

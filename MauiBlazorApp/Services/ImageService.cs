@@ -1,4 +1,5 @@
-﻿using MauiBlazorApp.Models;
+﻿
+using SharedLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,6 +30,6 @@ namespace MauiBlazorApp.Services
 
     public interface IImageService
     {
-        Task AddImageAsync(MyImage image);
+        Task AddImageAsync( MyImage image);
     }
 }

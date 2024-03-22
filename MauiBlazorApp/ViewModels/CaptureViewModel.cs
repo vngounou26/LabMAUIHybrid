@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using MauiBlazorApp.Models;
 using MauiBlazorApp.Services;
+using SharedLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

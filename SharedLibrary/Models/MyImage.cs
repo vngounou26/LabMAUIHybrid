@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MauiBlazorApp.Models
+namespace SharedLibrary.Models
 {
     public class MyImage
     {

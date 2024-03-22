@@ -1,0 +1,40 @@
+@using SharedLibrary.Models
+@using SharedLibrary.Services
+
+@inject ISharedImageService ImageService
+
+<div class="row">
+    @foreach (var image in images)
+    {
+        <div class="col-md-3">
+            <img src="@image.Picture" class="img-thumbnail" />
+        </div>
+    }
+</div>
+
+
+
+
+@code{
+
+    List<Data> images = new List<Data>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var datas = (await ImageService.GetAllImagesAsync()).AsQueryable().Skip(1);
+
+        foreach (var image in datas)
+        {
+            images.Add(new Data
+                {
+                    Picture = string.Format($"data:image/png;base64,{image.ImageData}")
+                });
+        }
+
+    }
+
+    public class Data
+    {
+        public string Picture { get; set; }
+    }
+}
